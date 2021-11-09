@@ -4,7 +4,11 @@ on:
 jobs:
   build:
     name: Windows
-    runs-on: windows-2019
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix: 
+        os: [ windows-2019, ubuntu-20.04 ]
+      fail-fast: false
     steps:
       - name: Checkout
         uses: actions/checkout@v2.3.4
@@ -37,6 +41,7 @@ jobs:
           MATRIX_CONTEXT: ${{ toJSON(matrix) }}
         run: echo "$MATRIX_CONTEXT"
       - name: Dump Windows Features
+        if: runner.os == 'Windows'
         shell: powershell
         run: Get-WindowsFeature
       
