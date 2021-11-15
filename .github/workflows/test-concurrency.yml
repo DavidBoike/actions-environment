@@ -5,7 +5,7 @@ jobs:
   build:
     name: Test Concurrency
     runs-on: ubuntu-latest
-    concurrency: ${{ matrix.concurrency-value || github.run_id }}
+    concurrency: ${{ matrix.concurrency-value || github.ref }}
     strategy:
       matrix: 
         include:
