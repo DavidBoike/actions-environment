@@ -46,4 +46,8 @@ jobs:
         run: Get-WindowsFeature
       - name: Dump preloaded Docker images
         run: docker images
+      - name: Dump Env
+        shell: pwsh
+        run: |
+          gci env:
       
