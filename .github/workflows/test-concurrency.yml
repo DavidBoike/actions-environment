@@ -30,9 +30,10 @@ jobs:
             concurrency-value: B
       fail-fast: false
     steps:
-      - run: |
-        echo ${{ matrix.name }}
-        echo "Start Time $(Get-Date)"
-        sleep 60
-        echo "End Time $(Get-Date)"
+      - shell: pwsh
+        run: |
+          echo "${{ matrix.name }}"
+          echo "Start Time $(Get-Date)"
+          sleep 60
+          echo "End Time $(Get-Date)"
       
