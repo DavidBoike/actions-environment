@@ -9,8 +9,8 @@ jobs:
       matrix: 
         os: [ windows-2019, ubuntu-20.04 ]
         include:
-          os: windows-2022
-          name: WindowsSpecial
+          - os: windows-2022
+            name: WindowsSpecial
       fail-fast: false
     steps:
       - run: echo "hi"
