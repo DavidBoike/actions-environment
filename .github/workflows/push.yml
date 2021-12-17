@@ -51,7 +51,7 @@ jobs:
       - name: Dump Linux Services
         if: runner.os == 'Linux'
         shell: bash
-        run: systemctl
+        run: sudo systemctl
       - name: Dump preloaded Docker images
         run: docker images
       - name: Dump Env
