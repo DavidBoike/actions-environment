@@ -3,7 +3,7 @@ on:
   push:
 jobs:
   build:
-    name: Windows
+    name: ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     strategy:
       matrix: 
