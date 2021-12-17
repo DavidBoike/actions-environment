@@ -46,8 +46,11 @@ jobs:
         run: Get-WindowsFeature
       - name: Dump Windows Services
         if: runner.os == 'Windows'
-        shell: pwsh
+        shell: powershell
         run: Get-Service
+      - name: Dump Linux Services
+        shell: bash
+        run: systemctl --type=service
       - name: Dump preloaded Docker images
         run: docker images
       - name: Dump Env
