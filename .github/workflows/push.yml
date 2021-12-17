@@ -44,6 +44,10 @@ jobs:
         if: runner.os == 'Windows'
         shell: powershell
         run: Get-WindowsFeature
+      - name: Dump Windows Services
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: Get-Service
       - name: Dump preloaded Docker images
         run: docker images
       - name: Dump Env
