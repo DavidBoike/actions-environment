@@ -49,6 +49,7 @@ jobs:
         shell: powershell
         run: Get-Service
       - name: Dump Linux Services
+        if: runner.os == 'Linux'
         shell: bash
         run: systemctl --type=service
       - name: Dump preloaded Docker images
