@@ -1,0 +1,29 @@
+name: CI
+on:
+  pull_request:
+  workflow_dispatch:
+env:
+  DOTNET_NOLOGO: true
+jobs:
+  build:
+    name: ${{ matrix.first }} then ${{ matrix.second }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - first: 7
+            second: 6
+          - first: 6
+            second: 7
+      fail-fast: false
+    steps:
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: |
+            ${{matrix.first}}.0.x
+            ${{matrix.second}}.0.x
+          include-prerelease: true
+      - name: Run dotnet --version
+        run: dotnet --version
+        shell: pwsh
