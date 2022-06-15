@@ -24,3 +24,6 @@ jobs:
             ${{matrix.first}}.0.x
             ${{matrix.second}}.0.x
           include-prerelease: true
+      - name: Run dotnet --version
+        run: dotnet --version
+        shell: pwsh
