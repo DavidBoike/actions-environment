@@ -23,4 +23,4 @@ jobs:
           dotnet-version: |
             ${{matrix.first}}.0.x
             ${{matrix.second}}.0.x
-          include-prerelease:true
+          include-prerelease: true
