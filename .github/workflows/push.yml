@@ -58,8 +58,4 @@ jobs:
       - name: Dump Env
         shell: pwsh
         run: |
-          gci env:
-      - name: Look for Azure Functions
-        shell: pwsh
-        run: ls "$Env:LOCALAPPDATA/AzureFunctionsTools" -r | Where-Object { $_.Name.Contains(".exe") }
-      
+          gci env:  
