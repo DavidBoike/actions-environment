@@ -16,9 +16,7 @@ jobs:
           script: |
             const smallDecisionRegex = /\[[Xx]\]\s+A\ssmall\s+decision/i;
             const labelName = 'Merged small decision';
-            
-            console.log(JSON.stringify(context));
-            
+                        
             let pr = context.payload.pull_request;
             let body = pr.body;
             
@@ -33,6 +31,7 @@ jobs:
             
             let repo = context.payload.repository;
             
+            // If label is already applied this is a no-op
             await github.rest.issues.addLabels({
               owner: repo.owner.login,
               repo: repo.name,
