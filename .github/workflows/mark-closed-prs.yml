@@ -37,10 +37,6 @@ jobs:
               owner: repo.owner.login,
               repo: repo.name,
               issue_number: pr.number,
-              labels: [
-                {
-                  name: labelName
-                }
-              ]
+              labels: [ labelName ]
             });
             
