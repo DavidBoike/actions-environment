@@ -25,7 +25,7 @@ jobs:
             let pr = context.payload.pull_request;
             let body = pr.body;
             
-            if (body && body.match(smallTaskRegex) {
+            if (body && body.match(smallTaskRegex)) {
               console.log('This is a small task');
             }
             
