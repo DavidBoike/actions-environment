@@ -12,3 +12,20 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJSON(github) }}
         run: echo "$GITHUB_CONTEXT"
+      - name: Blah
+        uses: actions/github-script@v6
+        id: my-script
+        with:
+          result-encoding: string
+          script: |
+            const smallTaskRegex = /\[[Xx]\]\s+A\ssmall\s+decision/i;
+            
+            console.log(JSON.stringify(context));
+            
+            let pr = context.payload.pull_request;
+            let body = pr.body;
+            
+            if (body && body.match(smallTaskRegex) {
+              console.log('This is a small task');
+            }
+            
