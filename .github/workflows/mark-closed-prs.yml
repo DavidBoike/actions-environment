@@ -1,0 +1,14 @@
+name: Mark closed small decision PRs
+on:
+  pull_request:
+    types: [ closed ]
+permissions:
+  pull-requests: write
+jobs:
+  mark:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
+        run: echo "$GITHUB_CONTEXT"
