@@ -23,10 +23,10 @@ jobs:
             throw "Invalid version ${{ inputs.version }}"
             exit 1
           }
-          Write-Output "major=$Matches.Major" | Out-File -FilePath $Env:GITHUB_OUTPUT -Encoding utf-8 -Append
-          Write-Output "minor=$Matches.Minor" | Out-File -FilePath $Env:GITHUB_OUTPUT -Encoding utf-8 -Append
-          Write-Output "patch=$Matches.Patch" | Out-File -FilePath $Env:GITHUB_OUTPUT -Encoding utf-8 -Append
-          Write-Output "prerelease=$Matches.Prerelease" | Out-File -FilePath $Env:GITHUB_OUTPUT -Encoding utf-8 -Append
+          Write-Output "major=$($Matches.Major)" | Out-File -FilePath $Env:GITHUB_OUTPUT -Encoding utf-8 -Append
+          Write-Output "minor=$($Matches.Minor)" | Out-File -FilePath $Env:GITHUB_OUTPUT -Encoding utf-8 -Append
+          Write-Output "patch=$($Matches.Patch)" | Out-File -FilePath $Env:GITHUB_OUTPUT -Encoding utf-8 -Append
+          Write-Output "prerelease=$($Matches.Prerelease)" | Out-File -FilePath $Env:GITHUB_OUTPUT -Encoding utf-8 -Append
           
       - name: Get latest released version
         id: get-latest
