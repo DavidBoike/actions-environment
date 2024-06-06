@@ -45,7 +45,7 @@ jobs:
             $vNew = [System.Version]$version
             $vPrev = [System.Version]$latestVersion
 
-            if ($vNew -gte $vPrev) {
+            if ($vNew -ge $vPrev) {
               $isLatest = $true
             }
           }
