@@ -33,10 +33,9 @@ jobs:
         shell: pwsh
         run: |
           $response = Invoke-WebRequest -Uri https://api.github.com/repos/particular/ServiceControl/releases -UseBasicParsing
-          $obj = ConvertFrom-Json $response -ErrorAction Stop
-          $obj = $obj | ? Draft -eq $false | ? Prerelease -eq $false | Select-Object -ExpandProperty tag_name
-          $sortedObj = $obj | Sort { [System.Version]$_ } -Descending
-          $latestVersion = [System.Version]($sortedObj | Select -First 1)
+          $releases = ConvertFrom-Json $response -ErrorAction Stop
+          $releasedVersions = $releases | ? Draft -eq $false | ? Prerelease -eq $false | Select-Object -ExpandProperty tag_name
+          $latestVersion = $releasedVersions | Sort-Object { [System.Version]$_ } -Descending | Select -First 1
           Write-Output "Latest released version = $latestVersion"
           Write-Output "version=$latestVersion" | Out-File -FilePath $Env:GITHUB_OUTPUT -Encoding utf-8 -Append
       - name: Summary
