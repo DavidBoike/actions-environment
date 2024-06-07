@@ -29,7 +29,7 @@ jobs:
 
           $major = $Matches.Major
           $minor = $Matches.Minor
-          $patch = $Matches.path
+          $patch = $Matches.Patch
           $prereleaseLabel = $Matches.PrereleaseLabel
           $isPrerelease = -not -not $prereleaseLabel
           Write-Output "Major = $major, Minor = $minor, Patch = $patch, PrereleaseLabel = $prereleaseLabel, IsPrerelease = $isPrerelease"
