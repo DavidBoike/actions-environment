@@ -57,7 +57,7 @@ jobs:
 
           if ( -not $isPrerelease ) {
             $tags += "$major"
-            $tags += "$major.$minor
+            $tags += "$major.$minor"
             if ($isLatest) {
               $tags += 'latest'
             }
