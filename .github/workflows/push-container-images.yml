@@ -32,7 +32,6 @@ jobs:
           $patch = $Matches.Patch
           $prereleaseLabel = $Matches.PrereleaseLabel
           $isPrerelease = -not -not $prereleaseLabel
-          Write-Output "Major = $major, Minor = $minor, Patch = $patch, PrereleaseLabel = $prereleaseLabel, IsPrerelease = $isPrerelease"
 
           # Get highest-versioned release
           $releases = Invoke-WebRequest -Uri https://api.github.com/repos/particular/ServiceControl/releases -UseBasicParsing |
@@ -50,7 +49,8 @@ jobs:
               $isLatest = $true
             }
           }
-          Write-Output "Is new version $version the new latest version? $isLatest"
+          
+          Write-Output "Major = $major, Minor = $minor, Patch = $patch, PrereleaseLabel = $prereleaseLabel, IsPrerelease = $isPrerelease, IsLatest = $isLatest"
 
           Write-Output "Determining tags..."
           $tags = @($version)
