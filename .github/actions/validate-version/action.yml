@@ -8,20 +8,21 @@ inputs:
 outputs:
   major:
     description: Major version
-    value: ${{ jobs.validate.outputs.major }}
+    value: ${{ steps.validate.outputs.major }}
   minor:
     description: Minor version
-    value: ${{ jobs.validate.outputs.minor }}
+    value: ${{ steps.validate.outputs.minor }}
   patch:
     description: Patch version
-    value: ${{ jobs.validate.outputs.patch }}
+    value: ${{ steps.validate.outputs.patch }}
   prerelease:
     description: Prerelease label
-    value: ${{ jobs.validate.outputs.prerelease }}
+    value: ${{ steps.validate.outputs.prerelease }}
 runs:
   using: composite
   steps:
     - name: Validate versions
+      id: validate
       shell: pwsh
       run: |
         $version = "${{ inputs.version }}"
