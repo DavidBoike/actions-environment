@@ -29,6 +29,6 @@ jobs:
       - name: Output
         if: ${{ always() }}
         run: |
-          echo "Newest: Major ${{ steps.newest.outputs.major }}, Minor ${{ steps.newest.outputs.minor }}, Patch ${{ steps.newest.outputs.patch }}, Prerelease '${{ steps.newest.outputs.prerelease }}, Tags [${{ steps.newest.outputs.tags }}"
-          echo "Prerelease: Major ${{ steps.prerelease.outputs.major }}, Minor ${{ steps.prerelease.outputs.minor }}, Patch ${{ steps.prerelease.outputs.patch }}, Prerelease '${{ steps.prerelease.outputs.prerelease }}, Tags [${{ steps.prerelease.outputs.tags }}"
-          echo "PrevMajor: Major ${{ steps.prev-major.outputs.major }}, Minor ${{ steps.prev-major.outputs.minor }}, Patch ${{ steps.prev-major.outputs.patch }}, Prerelease '${{ steps.prev-major.outputs.prerelease }}, Tags [${{ steps.prev-major.outputs.tags }}"
+          echo "Newest: Major ${{ steps.newest.outputs.major }}, Minor ${{ steps.newest.outputs.minor }}, Patch ${{ steps.newest.outputs.patch }}, Prerelease '${{ steps.newest.outputs.prerelease }}, Tags [${{ steps.newest.outputs.container-tags }}"
+          echo "Prerelease: Major ${{ steps.prerelease.outputs.major }}, Minor ${{ steps.prerelease.outputs.minor }}, Patch ${{ steps.prerelease.outputs.patch }}, Prerelease '${{ steps.prerelease.outputs.prerelease }}, Tags [${{ steps.prerelease.outputs.container-tags }}"
+          echo "PrevMajor: Major ${{ steps.prev-major.outputs.major }}, Minor ${{ steps.prev-major.outputs.minor }}, Patch ${{ steps.prev-major.outputs.patch }}, Prerelease '${{ steps.prev-major.outputs.prerelease }}, Tags [${{ steps.prev-major.outputs.container-tags }}"
