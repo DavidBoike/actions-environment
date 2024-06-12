@@ -23,6 +23,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo "Newest: Major ${{ jobs.newest.outputs.major }}, Minor ${{ jobs.newest.outputs.minor }}, Patch ${{ jobs.newest.outputs.patch }}, Prerelease '${{ jobs.newest.outputs.prerelease }}, Tags [${{ jobs.newest.outputs.tags }}"
-          echo "Prerelease: Major ${{ jobs.prerelease.outputs.major }}, Minor ${{ jobs.prerelease.outputs.minor }}, Patch ${{ jobs.prerelease.outputs.patch }}, Prerelease '${{ jobs.prerelease.outputs.prerelease }}, Tags [${{ jobs.prerelease.outputs.tags }}"
-          echo "PrevMajor: Major ${{ jobs.prev-major.outputs.major }}, Minor ${{ jobs.prev-major.outputs.minor }}, Patch ${{ jobs.prev-major.outputs.patch }}, Prerelease '${{ jobs.prev-major.outputs.prerelease }}, Tags [${{ jobs.prev-major.outputs.tags }}"
+          echo "Newest: Major ${{ needs.newest.outputs.major }}, Minor ${{ needs.newest.outputs.minor }}, Patch ${{ needs.newest.outputs.patch }}, Prerelease '${{ needs.newest.outputs.prerelease }}, Tags [${{ needs.newest.outputs.tags }}"
+          echo "Prerelease: Major ${{ needs.prerelease.outputs.major }}, Minor ${{ needs.prerelease.outputs.minor }}, Patch ${{ needs.prerelease.outputs.patch }}, Prerelease '${{ needs.prerelease.outputs.prerelease }}, Tags [${{ needs.prerelease.outputs.tags }}"
+          echo "PrevMajor: Major ${{ needs.prev-major.outputs.major }}, Minor ${{ needs.prev-major.outputs.minor }}, Patch ${{ needs.prev-major.outputs.patch }}, Prerelease '${{ needs.prev-major.outputs.prerelease }}, Tags [${{ needs.prev-major.outputs.tags }}"
