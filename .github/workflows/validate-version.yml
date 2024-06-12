@@ -84,16 +84,12 @@ jobs:
               $isLatest = $true
             }
 
-            if ($vNew -ge $vPrevForMajor) {
-              $isLatestForMajor = $true
+            if ($vNew -lt $vPrevForMajor) {
+              throw "Releasing a version $version that is not the latest version for the major would break container tagging and is not supported. (Latest v$major version is $latestForMjajor)"
             }
           }
           
           Write-Output "Major = $major, Minor = $minor, Patch = $patch, PrereleaseLabel = $prereleaseLabel, IsPrerelease = $isPrerelease, IsLatest = $isLatest"
-
-          if (-not $isLatestForMajor) {
-            throw "Releasing a version $version that is not the latest version for the major would break container tagging and is not supported. (Latest v$major version is $latestForMjajor)"
-          }
 
           Write-Output "Determining container tags..."
           $tags = @($version)
