@@ -18,6 +18,9 @@ outputs:
   prerelease:
     description: Prerelease label
     value: ${{ steps.validate.outputs.prerelease }}
+  container-tags:
+    description: Tags to be added for container releases (comma-separated)
+    value: ${{ steps.validate.outputs.container-tags }}
 runs:
   using: composite
   steps:
