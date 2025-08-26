@@ -68,3 +68,7 @@ jobs:
         shell: pwsh
         run: |
           dotnet --info
+      - name: Find affected branch
+        env:
+          AFFECTED_BRANCH: ${{ github.base_ref || github.ref_name }}
+        run: echo "Affected Branch = $AFFECTED_BRANCH"
